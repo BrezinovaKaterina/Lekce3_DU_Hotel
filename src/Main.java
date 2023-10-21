@@ -31,7 +31,16 @@ public class Main {
         roomList.add(room2);
         roomList.add(room3);
 
-        System.out.println(roomList);
+        System.out.println("Popis pokojů: ");
+        for (Room rooms : roomList){
+            System.out.print(
+                    "Číslo pokoje: " +rooms.getRoomNumber()
+                    + ", počet lůžek: " + rooms.getCountOfBed()
+                    + ", balkon: " +rooms.isBalcony()
+                    + ", výhled na moře: " +rooms.isSeaView()
+                    + ", cena za noc: " + rooms.getPricePerNight() + " Kč.");
+            System.out.println();
+        }
 
         System.out.println("***");
 
@@ -43,9 +52,10 @@ public class Main {
         listOfBooking.add(booking1);
         listOfBooking.add(booking2);
 
+        System.out.println("Detail rezervací: ");
         for (Booking booking : listOfBooking) {
             System.out.print(
-                    "Detail rezervace: číslo pokoje: " + booking.getRoom().getRoomNumber()
+                    "Číslo pokoje: " + booking.getRoom().getRoomNumber()
                             + ", Host: " + booking.getGuest().getGuestLastName() + " " + booking.getGuest().getGuestFirstName()
                             + ", počet hostů: " + booking.getCountOfGuests()
                             + ", rezervace od: " + booking.getDateFrom() + ", rezervace do:" + booking.getDateTo()
