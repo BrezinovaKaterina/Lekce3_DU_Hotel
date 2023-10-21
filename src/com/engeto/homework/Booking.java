@@ -10,24 +10,27 @@ public class Booking {
     private LocalDate dateFrom;
     private LocalDate dateTo;
     private List<Guest> otherGuests;
+    private String typeOfVacation;
 
 
     //Konstruktor
 
-    public Booking(Room room, Guest guest, int countOfGuests, LocalDate dateFrom, LocalDate dateTo, List<Guest> otherGuests) {
+    public Booking(Room room, Guest guest, int countOfGuests, LocalDate dateFrom, LocalDate dateTo, List<Guest> otherGuests, String typeOfVacation) {
         this.room = room;
         this.guest = guest;
         this.countOfGuests = countOfGuests;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
         this.otherGuests = otherGuests;
+        this.typeOfVacation = typeOfVacation;
     }
-    public Booking(Room room, Guest guest, int countOfGuests, LocalDate dateFrom, LocalDate dateTo) {
+    public Booking(Room room, Guest guest, int countOfGuests, LocalDate dateFrom, LocalDate dateTo, String typeOfVacation) {
         this.room = room;
         this.guest = guest;
         this.countOfGuests = countOfGuests;
         this.dateFrom = dateFrom;
         this.dateTo = dateTo;
+        this.typeOfVacation = typeOfVacation;
     }
 
     //Gettery a Settery
@@ -81,14 +84,26 @@ public class Booking {
         this.countOfGuests = countOfGuests;
     }
 
+    public String getTypeOfVacation() {
+        return typeOfVacation;
+    }
+
+    public void setTypeOfVacation(String typeOfVacation) {
+        this.typeOfVacation = typeOfVacation;
+    }
+
+    // přidané metody dle úkolu:
+
+
     @Override
     public String toString() {
         return "Booking:" +
-                "room:" + room +
-                ", guest:" + guest +
+                "room: " + room +
+                ", guest: " + guest +
                 ", count of guests: " + countOfGuests +
-                ", dateFrom:" + dateFrom +
-                ", dateTo:" + dateTo +
-                ", otherGuests:" + otherGuests;
+                ", dateFrom: " + dateFrom +
+                ", dateTo: " + dateTo +
+                ", otherGuests: " + otherGuests +
+                ", type of vacation: " + typeOfVacation;
     }
 }

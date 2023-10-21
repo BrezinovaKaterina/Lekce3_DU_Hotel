@@ -45,8 +45,8 @@ public class Main {
         System.out.println("***");
 
         //3. Booking
-        Booking booking1 = new Booking (room1,guest1,1, LocalDate.of(2021,7,19),LocalDate.of(2021,7,26));
-        Booking booking2 = new Booking (room3, guest2,2, LocalDate.of(2021,9,1), LocalDate.of(2021,9,14), otherGuests);
+        Booking booking1 = new Booking (room1,guest1,1, LocalDate.of(2021,7,19),LocalDate.of(2021,7,26), "pracovní pobyt");
+        Booking booking2 = new Booking (room3, guest2,2, LocalDate.of(2021,9,1), LocalDate.of(2021,9,14), otherGuests, "rekreační pobyt");
 
         List<Booking> listOfBooking = new ArrayList<>();
         listOfBooking.add(booking1);
@@ -59,8 +59,12 @@ public class Main {
                             + ", Host: " + booking.getGuest().getGuestLastName() + " " + booking.getGuest().getGuestFirstName()
                             + ", počet hostů: " + booking.getCountOfGuests()
                             + ", rezervace od: " + booking.getDateFrom() + ", rezervace do:" + booking.getDateTo()
+                            + ", typ rezervace: " + booking.getTypeOfVacation()
                             + ", other guest: "+ booking.getOtherGuests());
             System.out.println();
         }
+
+        System.out.println(" ");
+        System.out.println("*** LEKCE 3 - EVIDENCE REZERVACÍ ***");
     }
 }
