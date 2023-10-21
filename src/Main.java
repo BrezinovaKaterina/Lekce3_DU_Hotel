@@ -13,11 +13,11 @@ public class Main {
         Guest guest1 = new Guest("Adéla","Malíková", LocalDate.of(1993,3,13));
         Guest guest2 = new Guest("Jan","Dvořáček",LocalDate.of(1995,5,5));
 
-        System.out.println(guest1.getGuestFirstName()+" "+guest1.getGuestLastName()+" ("+guest1.getGuestBirthDate()+")");
-        System.out.println(guest2.getGuestFirstName()+" "+guest2.getGuestLastName()+" ("+guest2.getGuestBirthDate()+")");
-
         List<Guest> otherGuests = new ArrayList<>();
         otherGuests.add(guest1);
+
+        System.out.println(guest1.getGuestFirstName()+" "+guest1.getGuestLastName()+" ("+guest1.getGuestBirthDate()+")");
+        System.out.println(guest2.getGuestFirstName()+" "+guest2.getGuestLastName()+" ("+guest2.getGuestBirthDate()+")");
 
         System.out.println("***");
 
@@ -42,20 +42,6 @@ public class Main {
         List<Booking> listOfBooking = new ArrayList<>();
         listOfBooking.add(booking1);
         listOfBooking.add(booking2);
-
-        System.out.println(listOfBooking);
-
-        System.out.println("***");
-
-//        System.out.println(
-//                "Detail rezervace: room number: "+booking1.getRoom().getRoomNumber()
-//                +", Host: "+booking1.getGuest().getGuestLastName()+" "+booking1.getGuest().getGuestFirstName()
-//                +", from: "+booking1.getDateFrom()+", to:"+booking1.getDateTo()+", other guest: "+booking1.getOtherGuests().get(0));
-//
-//        System.out.println(
-//        "Detail rezervace: room number: "+booking2.getRoom().getRoomNumber()
-//                +", Host: "+booking2.getGuest().getGuestLastName()+" "+booking2.getGuest().getGuestFirstName()
-//                +", from: "+booking2.getDateFrom()+", to:"+booking2.getDateTo()+", other guest: "+booking2.getOtherGuests().get(1));
 
         for (Booking booking : listOfBooking) {
             System.out.print(
