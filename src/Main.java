@@ -31,16 +31,7 @@ public class Main {
         roomList.add(room2);
         roomList.add(room3);
 
-        System.out.println("Popis pokojů: ");
-        for (Room rooms : roomList){
-            System.out.print(
-                    "Číslo pokoje: " +rooms.getRoomNumber()
-                    + ", počet lůžek: " + rooms.getCountOfBed()
-                    + ", balkon: " +rooms.isBalcony()
-                    + ", výhled na moře: " +rooms.isSeaView()
-                    + ", cena za noc: " + rooms.getPricePerNight() + " Kč.");
-            System.out.println();
-        }
+        printRoomDescription(roomList);
 
         System.out.println("***");
 
@@ -52,19 +43,51 @@ public class Main {
         listOfBooking.add(booking1);
         listOfBooking.add(booking2);
 
+        System.out.println("");
+        System.out.println("*** LEKCE 3 - EVIDENCE REZERVACÍ ***");
+
+        Guest guest3 = new Guest("Karel", "Dvořák", LocalDate.of(1990,5,15));
+        Guest guest4 = new Guest("Karel", "Dvořák", LocalDate.of(1979,1,3));
+        Guest guest5 = new Guest("Karolína", "Tmavá",LocalDate.of(1970,11,24));
+
+        Booking booking3 = new Booking(room3, guest3, 1, LocalDate.of(2023,6,1), LocalDate.of(2023,6,7), "pracovní pobyt");
+        Booking booking4 = new Booking(room2, guest4, 1, LocalDate.of(2023,7,18), LocalDate.of(2023,7,21), "rekreační pobyt");
+
+        listOfBooking.add(booking3);
+        listOfBooking.add(booking4);
+
+        printDetailOfReservation(listOfBooking);
+
+
+
+
+    }
+
+    private static void printRoomDescription(List<Room> roomList) {
+        System.out.println("Popis pokojů: ");
+        for (Room rooms : roomList){
+            System.out.print(
+                    "Číslo pokoje: " +rooms.getRoomNumber()
+                    + ", počet lůžek: " + rooms.getCountOfBed()
+                    + ", balkon: " +rooms.isBalcony()
+                    + ", výhled na moře: " +rooms.isSeaView()
+                    + ", cena za noc: " + rooms.getPricePerNight() + " Kč.");
+            System.out.println();
+        }
+    }
+
+    private static void printDetailOfReservation(List<Booking> listOfBooking) {
         System.out.println("Detail rezervací: ");
         for (Booking booking : listOfBooking) {
             System.out.print(
                     "Číslo pokoje: " + booking.getRoom().getRoomNumber()
                             + ", Host: " + booking.getGuest().getGuestLastName() + " " + booking.getGuest().getGuestFirstName()
+                            + ", datum narození: " +booking.getGuest().getGuestBirthDate()
                             + ", počet hostů: " + booking.getCountOfGuests()
                             + ", rezervace od: " + booking.getDateFrom() + ", rezervace do:" + booking.getDateTo()
                             + ", typ rezervace: " + booking.getTypeOfVacation()
                             + ", other guest: "+ booking.getOtherGuests());
             System.out.println();
         }
-
-        System.out.println(" ");
-        System.out.println("*** LEKCE 3 - EVIDENCE REZERVACÍ ***");
     }
 }

@@ -22,9 +22,7 @@ public class BookingManager {
         listOfBooking.clear();
     }
 
-    public void getBookings();
-    int id = 0;
-    for (Booking booking : listOfBooking) {
-        System.out.println();
-    }
+    // Prvních 8 rekreačních rezervací
+
+
 }
