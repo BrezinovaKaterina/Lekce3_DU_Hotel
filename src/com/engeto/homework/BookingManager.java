@@ -9,7 +9,7 @@ public class BookingManager {
     public void add(Booking newBooking){
         listOfBooking.add(newBooking);
     }
-    public Booking get(int index) {
+    public Booking getIndex(int index) {
         return listOfBooking.get(index);
     }
 

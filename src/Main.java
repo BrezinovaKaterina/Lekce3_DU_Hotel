@@ -3,6 +3,7 @@ import com.engeto.homework.BookingManager;
 import com.engeto.homework.Guest;
 import com.engeto.homework.Room;
 
+import java.awt.print.Book;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -67,21 +68,31 @@ public class Main {
         System.out.println("");
         System.out.println("*** BOOKING MANAGER ***");
 
+        fillBookings(listOfBooking, room2, guest5);
         BookingManager bookingManager = new BookingManager();
         bookingManager.addAll(listOfBooking);
 
-
-        System.out.println("Počet pobytů: "+bookingManager.countOfBooking());
-        System.out.println("Průměr hostů na rezervaci: "+bookingManager.getAverageGuests());
-
-
-        fillBookings(listOfBooking, room2, guest5);
-        System.out.println()
+        System.out.println("");
         printDetailOfReservation(listOfBooking);
         System.out.println("");
         printAllReservation(listOfBooking);
 
+        System.out.println("Počet pobytů: "+bookingManager.countOfBooking());
+        System.out.println("Průměr hostů na rezervaci: "+bookingManager.getAverageGuests());
+
+        System.out.println("");
+
+        System.out.println("Prvních 8 rezervací pro rekreační pobyt:");
+        for (Booking booking : listOfBooking) {
+            if (booking.getTypeOfVacation().equals("rekreační pobyt")) {
+                System.out.print("číslo pokoje: "+ booking.getRoom().getRoomNumber()
+                        +", host: "+ booking.getGuest().getGuestFirstName() +" "+booking.getGuest().getGuestLastName()
+                        +", od: "+booking.getDateFrom() +" do: " +booking.getDateTo());
+            }
+            System.out.println();
+        }
     }
+
 
     private static void fillBookings(List<Booking> listOfBooking, Room room2, Guest guest5) {
         int count = 10;
@@ -109,7 +120,7 @@ public class Main {
     }
 
     private static void printDetailOfReservation(List<Booking> listOfBooking) {
-        System.out.println("Detail rezervací: ");
+       System.out.println("Detail rezervací: ");
         for (Booking booking : listOfBooking) {
             System.out.print(
                     "Číslo pokoje: " + booking.getRoom().getRoomNumber()
@@ -134,16 +145,6 @@ public class Main {
                             + booking.getCountOfGuests() + ", "
                             + booking.getRoom().isBalcony() + "] za " + booking.getRoom().getPricePerNight() + " Kč.");
             System.out.println();
-        }
-    }
-
-    private static void printRecreationalStay(List<Booking> listOfBooking) {
-        System.out.println("Detail rezervací dle zadání: ");
-        int limit = 7;
-        for (Booking booking : listOfBooking) {
-            if (booking.getTypeOfVacation().equals("rekreační pobyt")) {
-                printDetailOfReservation(listOfBooking);
-            }
         }
     }
 }
