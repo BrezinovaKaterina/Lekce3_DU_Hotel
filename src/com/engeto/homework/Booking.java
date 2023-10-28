@@ -92,8 +92,6 @@ public class Booking {
         this.typeOfVacation = typeOfVacation;
     }
 
-    // přidané metody dle úkolu:
-
 
     @Override
     public String toString() {

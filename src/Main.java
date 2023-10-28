@@ -1,4 +1,5 @@
 import com.engeto.homework.Booking;
+import com.engeto.homework.BookingManager;
 import com.engeto.homework.Guest;
 import com.engeto.homework.Room;
 
@@ -57,6 +58,16 @@ public class Main {
         listOfBooking.add(booking4);
 
         printDetailOfReservation(listOfBooking);
+
+        System.out.println("");
+        System.out.println("*** BOOKING MANAGER ***");
+
+        BookingManager bookingManager = new BookingManager();
+        bookingManager.addAll(listOfBooking);
+
+
+        System.out.println("Počet pobytů: "+bookingManager.countOfBooking());
+        System.out.println("Průměr hostů na rezervaci: "+bookingManager.getAverageGuests());
 
 
 
