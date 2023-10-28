@@ -4,6 +4,8 @@ import com.engeto.homework.Guest;
 import com.engeto.homework.Room;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +62,7 @@ public class Main {
         listOfBooking.add(booking5);
 
 
-        printDetailOfReservation(listOfBooking);
+         printDetailOfReservation(listOfBooking);
 
         System.out.println("");
         System.out.println("*** BOOKING MANAGER ***");
@@ -72,7 +74,23 @@ public class Main {
         System.out.println("Počet pobytů: "+bookingManager.countOfBooking());
         System.out.println("Průměr hostů na rezervaci: "+bookingManager.getAverageGuests());
 
+
+        fillBookings(listOfBooking, room2, guest5);
+        printDetailOfReservation(listOfBooking);
+
     }
+
+    private static void fillBookings(List<Booking> listOfBooking, Room room2, Guest guest5) {
+        int count = 10;
+        LocalDate startDate = LocalDate.of(2023,6,1);
+        LocalDate endDate = startDate.plusDays(1);
+        for (int i = 0; i < count; i++) {
+            System.out.print(listOfBooking.add(new Booking(room2, guest5, 1, startDate, endDate,"rekreační pobyt")));
+            startDate = startDate.plusDays(2);
+            endDate = startDate.plusDays(1);
+        }
+    }
+
 
     private static void printRoomDescription(List<Room> roomList) {
         System.out.println("Popis pokojů: ");
@@ -95,7 +113,8 @@ public class Main {
                             + ", Host: " + booking.getGuest().getGuestLastName() + " " + booking.getGuest().getGuestFirstName()
                             + ", datum narození: " +booking.getGuest().getGuestBirthDate()
                             + ", počet hostů: " + booking.getCountOfGuests()
-                            + ", rezervace od: " + booking.getDateFrom() + ", rezervace do:" + booking.getDateTo()
+                            + ", rezervace od: " + booking.getDateFrom()
+                            + ", rezervace do:" + booking.getDateTo()
                             + ", typ rezervace: " + booking.getTypeOfVacation()
                             + ", other guest: "+ booking.getOtherGuests());
             System.out.println();
