@@ -1,7 +1,9 @@
 package com.engeto.homework;
-
+import com.engeto.homework.Guest;
+import com.engeto.homework.Room;
 import java.time.LocalDate;
 import java.util.List;
+
 
 public class Booking {
     private Room room;

@@ -53,9 +53,12 @@ public class Main {
 
         Booking booking3 = new Booking(room3, guest3, 1, LocalDate.of(2023,6,1), LocalDate.of(2023,6,7), "pracovní pobyt");
         Booking booking4 = new Booking(room2, guest4, 1, LocalDate.of(2023,7,18), LocalDate.of(2023,7,21), "rekreační pobyt");
+        Booking booking5 = new Booking(room3, guest5,1, LocalDate.of(2023,8,1), LocalDate.of(2023,8,31), "rekreační pobyt");
 
         listOfBooking.add(booking3);
         listOfBooking.add(booking4);
+        listOfBooking.add(booking5);
+
 
         printDetailOfReservation(listOfBooking);
 
@@ -68,9 +71,6 @@ public class Main {
 
         System.out.println("Počet pobytů: "+bookingManager.countOfBooking());
         System.out.println("Průměr hostů na rezervaci: "+bookingManager.getAverageGuests());
-
-
-
 
     }
 
