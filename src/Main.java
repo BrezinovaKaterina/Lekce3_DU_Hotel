@@ -76,6 +76,7 @@ public class Main {
 
 
         fillBookings(listOfBooking, room2, guest5);
+        System.out.println()
         printDetailOfReservation(listOfBooking);
         System.out.println("");
         printAllReservation(listOfBooking);
@@ -121,7 +122,8 @@ public class Main {
                             + ", other guest: "+ booking.getOtherGuests());
             System.out.println();
         }
-    }    private static void printAllReservation(List<Booking> listOfBooking) {
+    }
+    private static void printAllReservation(List<Booking> listOfBooking) {
         System.out.println("Detail rezervací dle zadání: ");
         for (Booking booking : listOfBooking) {
             Room rooms;
@@ -130,8 +132,18 @@ public class Main {
                             + booking.getGuest().getGuestFirstName() + " " + booking.getGuest().getGuestLastName()
                             + "(" +booking.getGuest().getGuestBirthDate() + ") ["
                             + booking.getCountOfGuests() + ", "
-                            + booking.getRoom().isBalcony() + "] za " + booking.getRoom().getPricePerNight() + " CZK.");
+                            + booking.getRoom().isBalcony() + "] za " + booking.getRoom().getPricePerNight() + " Kč.");
             System.out.println();
+        }
+    }
+
+    private static void printRecreationalStay(List<Booking> listOfBooking) {
+        System.out.println("Detail rezervací dle zadání: ");
+        int limit = 7;
+        for (Booking booking : listOfBooking) {
+            if (booking.getTypeOfVacation().equals("rekreační pobyt")) {
+                printDetailOfReservation(listOfBooking);
+            }
         }
     }
 }
