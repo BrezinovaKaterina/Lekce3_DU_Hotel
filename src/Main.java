@@ -77,6 +77,8 @@ public class Main {
 
         fillBookings(listOfBooking, room2, guest5);
         printDetailOfReservation(listOfBooking);
+        System.out.println("");
+        printAllReservation(listOfBooking);
 
     }
 
@@ -117,6 +119,18 @@ public class Main {
                             + ", rezervace do:" + booking.getDateTo()
                             + ", typ rezervace: " + booking.getTypeOfVacation()
                             + ", other guest: "+ booking.getOtherGuests());
+            System.out.println();
+        }
+    }    private static void printAllReservation(List<Booking> listOfBooking) {
+        System.out.println("Detail rezervací dle zadání: ");
+        for (Booking booking : listOfBooking) {
+            Room rooms;
+            System.out.print(
+                    booking.getDateFrom() + " do " + booking.getDateTo() + ": "
+                            + booking.getGuest().getGuestFirstName() + " " + booking.getGuest().getGuestLastName()
+                            + "(" +booking.getGuest().getGuestBirthDate() + ") ["
+                            + booking.getCountOfGuests() + ", "
+                            + booking.getRoom().isBalcony() + "] za " + booking.getRoom().getPricePerNight() + " CZK.");
             System.out.println();
         }
     }

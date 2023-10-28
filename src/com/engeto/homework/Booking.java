@@ -107,5 +107,6 @@ public class Booking {
                 ", dateTo: " + dateTo +
                 ", otherGuests: " + otherGuests +
                 ", type of vacation: " + typeOfVacation;
+
     }
 }
