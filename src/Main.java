@@ -103,11 +103,22 @@ public class Main {
         System.out.println("Celkový počet rezervací s více než dvěma hosty: "+bookingManager.printMoreGuests());
 
         System.out.println("***"+"\n");
+        printTotalPriceOfBooking(listOfBooking);
+    }
+
+    private static void printTotalPriceOfBooking(List<Booking> listOfBooking) {
         System.out.println("Celková cena pobytu:");
-
-
-
-        System.out.println(booking5.getPrice());
+        int i = 0;
+        for (Booking booking : listOfBooking){
+            System.out.print(
+                    "Číslo pokoje: " +booking.getRoom().getRoomNumber()
+                            + ", cena za noc: " +booking.getRoom().getPricePerNight()
+                            + " Kč, od: " +booking.getDateFrom() +" do: "+booking.getDateTo()
+                            + ", délka pobytu (ve dnech): "+booking.getBookingLength()
+                            + " cena celkem: " + booking.getPrice() + "Kč.");
+                    i++;
+            System.out.println();
+        }
     }
 
 
