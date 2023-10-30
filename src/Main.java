@@ -82,6 +82,18 @@ public class Main {
 
         System.out.println("");
 
+        System.out.println("Prvních 8 rezervací na rekreační pobyt:");
+        int limit = 8;
+        int orderOfReservation = 1;
+        for (Booking booking : bookingManager.printRecreationalReservations()) {
+            if (orderOfReservation <= limit) {
+            System.out.print(orderOfReservation
+                    +") " +booking.getGuest().getGuestLastName()+" "+booking.getGuest().getGuestFirstName()
+                    +", od: " +booking.getDateFrom() + " do: "+booking.getDateTo() + "\n");
+            orderOfReservation++;
+            }
+        }
+        System.out.println();
 
 
        //printGuestStatistics(listOfBooking);
