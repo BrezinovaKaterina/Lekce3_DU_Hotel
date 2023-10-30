@@ -3,10 +3,7 @@ import com.engeto.homework.BookingManager;
 import com.engeto.homework.Guest;
 import com.engeto.homework.Room;
 
-import java.awt.print.Book;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.List;
 
