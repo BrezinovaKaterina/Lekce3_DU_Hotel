@@ -82,15 +82,9 @@ public class Main {
 
         System.out.println("");
 
-        System.out.println("Prvních 8 rezervací pro rekreační pobyt:");
-        for (Booking booking : listOfBooking) {
-            if (booking.getTypeOfVacation().equals("rekreační pobyt")) {
-                System.out.print("číslo pokoje: "+ booking.getRoom().getRoomNumber()
-                        +", host: "+ booking.getGuest().getGuestFirstName() +" "+booking.getGuest().getGuestLastName()
-                        +", od: "+booking.getDateFrom() +" do: " +booking.getDateTo());
-            }
-            System.out.println();
-        }
+
+
+       //printGuestStatistics(listOfBooking);
     }
 
 
@@ -145,6 +139,17 @@ public class Main {
                             + booking.getCountOfGuests() + ", "
                             + booking.getRoom().isBalcony() + "] za " + booking.getRoom().getPricePerNight() + " Kč.");
             System.out.println();
+        }
+    }
+
+    private static void printGuestStatistics(List<Booking> listOfBooking) {
+        System.out.println("Statistika dle počtu hostů: ");
+        int oneGuest = 0;
+        for (Booking booking : listOfBooking) {
+            if (booking.getCountOfGuests()==1) {
+                oneGuest++;
+                System.out.println(oneGuest);
+            }
         }
     }
 }

@@ -33,6 +33,17 @@ public class BookingManager {
         return (double) totalGuests/countOfBooking();
     }
 
+
+    public List<Booking> printRecreationalReservations(){
+        List<Booking> recreationalReservations = new ArrayList<>();
+        for (Booking booking : listOfBooking) {
+            if (booking.getTypeOfVacation().equals("rekreační pobyt")){
+                recreationalReservations.add(booking);
+            }
+        }
+        return recreationalReservations;
+    }
+
 public static int getNumberOfWorkingBookings (){
     int numberOfWorkingBookings = 0;
         for (Booking booking : listOfBooking) {
