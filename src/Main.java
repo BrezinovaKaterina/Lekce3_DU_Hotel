@@ -95,8 +95,13 @@ public class Main {
         }
         System.out.println();
 
+        System.out.println("***"+"\n");
 
-       //printGuestStatistics(listOfBooking);
+        System.out.println("Statistika dle počtu hostů:");
+        System.out.println("Celkový počet rezervací s jedním hostem: "+bookingManager.printOneGuest());
+        System.out.println("Celkový počet rezervací se dvěma hosty: "+bookingManager.printTwoGuests());
+        System.out.println("Celkový počet rezervací s více než dvěma hosty: "+bookingManager.printMoreGuests());
+
     }
 
 
@@ -151,17 +156,6 @@ public class Main {
                             + booking.getCountOfGuests() + ", "
                             + booking.getRoom().isBalcony() + "] za " + booking.getRoom().getPricePerNight() + " Kč.");
             System.out.println();
-        }
-    }
-
-    private static void printGuestStatistics(List<Booking> listOfBooking) {
-        System.out.println("Statistika dle počtu hostů: ");
-        int oneGuest = 0;
-        for (Booking booking : listOfBooking) {
-            if (booking.getCountOfGuests()==1) {
-                oneGuest++;
-                System.out.println(oneGuest);
-            }
         }
     }
 }

@@ -44,6 +44,36 @@ public class BookingManager {
         return recreationalReservations;
     }
 
+    public int printOneGuest (){
+        int oneGuest = 0;
+        for (Booking booking : listOfBooking) {
+            if (booking.getCountOfGuests() ==1) {
+                oneGuest++;
+            }
+        }
+        return oneGuest;
+    }
+    public int printTwoGuests (){
+        int twoGuests = 0;
+        for (Booking booking : listOfBooking) {
+            if (booking.getCountOfGuests() ==2) {
+                twoGuests++;
+            }
+        }
+        return twoGuests;
+    }
+    public int printMoreGuests (){
+        int MoreGuests = 0;
+        for (Booking booking : listOfBooking) {
+            if (booking.getCountOfGuests() >2) {
+                MoreGuests++;
+            }
+        }
+        return MoreGuests;
+    }
+
+
+
 public static int getNumberOfWorkingBookings (){
     int numberOfWorkingBookings = 0;
         for (Booking booking : listOfBooking) {
