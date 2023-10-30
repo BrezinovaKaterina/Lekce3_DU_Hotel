@@ -102,6 +102,12 @@ public class Main {
         System.out.println("Celkový počet rezervací se dvěma hosty: "+bookingManager.printTwoGuests());
         System.out.println("Celkový počet rezervací s více než dvěma hosty: "+bookingManager.printMoreGuests());
 
+        System.out.println("***"+"\n");
+        System.out.println("Celková cena pobytu:");
+
+
+
+        System.out.println(booking5.getPrice());
     }
 
 

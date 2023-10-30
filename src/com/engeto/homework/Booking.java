@@ -1,9 +1,14 @@
 package com.engeto.homework;
 import com.engeto.homework.Guest;
 import com.engeto.homework.Room;
+
+import java.awt.print.Book;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -94,6 +99,19 @@ public class Booking {
 
     public void setTypeOfVacation(String typeOfVacation) {
         this.typeOfVacation = typeOfVacation;
+    }
+
+    public double getBookingLength() {
+        LocalDate start = dateFrom;
+        LocalDate end = dateTo;
+        long daysBetween = ChronoUnit.DAYS.between(start, end);
+        return daysBetween;
+    }
+
+    public double getPrice(){
+        double priceTotal;
+        priceTotal = getRoom().getPricePerNight()*getBookingLength();
+        return priceTotal;
     }
 
 
